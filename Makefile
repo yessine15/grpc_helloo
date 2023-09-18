@@ -15,14 +15,12 @@ all: greeter_client greeter_server
 
 
 greeter_client: helloworld.pb.o helloworld.grpc.pb.o greeter_client.o
-
-        $(CXX) $^ $(LDFLAGS) -o $@
+$(CXX) $^ $(LDFLAGS) -o $@
 
 
 
 greeter_server: helloworld.pb.o helloworld.grpc.pb.o greeter_server.o
-
-        $(CXX) $^ $(LDFLAGS) -o $@
+$(CXX) $^ $(LDFLAGS) -o $@
 
 
 
@@ -31,22 +29,18 @@ greeter_server: helloworld.pb.o helloworld.grpc.pb.o greeter_server.o
 .PRECIOUS: %.grpc.pb.cc
 
 %.grpc.pb.cc: %.proto
-
-        $(PROTOC) -I $(PROTOS_PATH) --grpc_out=. --plugin=protoc-gen-grpc=$(GRPC_CPP_PLUGIN_PATH) $<
+$(PROTOC) -I $(PROTOS_PATH) --grpc_out=. --plugin=protoc-gen-grpc=$(GRPC_CPP_PLUGIN_PATH) $<
 
 
 
 .PRECIOUS: %.pb.cc
-
 %.pb.cc: %.proto
-
-        $(PROTOC) -I $(PROTOS_PATH) --cpp_out=. $<
+$(PROTOC) -I $(PROTOS_PATH) --cpp_out=. $<
 
 
 
 clean:
-
-        rm -f *.o *.pb.cc *.pb.h greeter_client greeter_server greeter_async_client greeter_async_client2 greeter_async_server greeter_callback_client greeter_callback_server
+rm -f *.o *.pb.cc *.pb.h greeter_client greeter_server greeter_async_client greeter_async_client2 greeter_async_server greeter_callback_client greeter_callback_server
 
 
 
