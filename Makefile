@@ -8,16 +8,16 @@ CPPFLAGS += `pkg-config --cflags protobuf grpc `
 CXXFLAGS += -std=c++17
 ifeq ($(SYSTEM),Darwin)
 LDFLAGS += -L/usr/local/lib `pkg-config --libs --static protobuf grpc++  $(PROTOBUF_ABSL_DEPS)`\
-           $(PROTOBUF_UTF8_RANGE_LINK_LIBS) \
-           -pthread\
-           -lgrpc++_reflection\
-           -ldl
+	$(PROTOBUF_UTF8_RANGE_LINK_LIBS) \
+	-pthread\
+	-lgrpc++_reflection\
+	-ldl
 else
 LDFLAGS += -L/usr/local/lib `pkg-config --libs --static protobuf grpc++  $(PROTOBUF_ABSL_DEPS)`\
-           $(PROTOBUF_UTF8_RANGE_LINK_LIBS) \
-	   -pthread\
-           -Wl,--no-as-needed -lgrpc++_reflection -Wl,--as-needed\
-           -ldl
+	$(PROTOBUF_UTF8_RANGE_LINK_LIBS) \
+	-pthread\
+	-Wl,--no-as-needed -lgrpc++_reflection -Wl,--as-needed\
+	-ldl
 endif
 PROTOC = protoc
 GRPC_CPP_PLUGIN = grpc_cpp_plugin
