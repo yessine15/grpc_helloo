@@ -20,10 +20,6 @@
 #include <memory>
 #include <string>
 
-#include "absl/flags/flag.h"
-#include "absl/flags/parse.h"
-#include "absl/strings/str_format.h"
-
 //#include <grpcpp/ext/proto_server_reflection_plugin.h>
 #include <grpcpp/grpcpp.h>
 #include <grpcpp/health_check_service_interface.h>
@@ -48,7 +44,7 @@ using helloworld::Greeter;
 using helloworld::HelloReply;
 using helloworld::HelloRequest;
 
-ABSL_FLAG(uint16_t, port, 50051, "Server port for the service");
+//ABSL_FLAG(uint16_t, port, 50051, "Server port for the service");
 
 // Logic and data behind the server's behavior.
 class GreeterServiceImpl final : public Greeter::Service {
@@ -81,8 +77,8 @@ void RunServer(uint16_t port) {
   server->Wait();
 }
 
-int main(int argc, char** argv) {
-  absl::ParseCommandLine(argc, argv);
-  RunServer(absl::GetFlag(FLAGS_port));
+int main() {
+  //absl::ParseCommandLine(argc, argv);
+  RunServer(50051);
   return 0;
 }
