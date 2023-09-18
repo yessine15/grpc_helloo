@@ -1,4 +1,4 @@
- TODO(jtattermusch): Remove the hack to workaround protobuf bug. See https://github.com/protocolbuffers/protobuf/issues/12439
+#TODO(jtattermusch): Remove the hack to workaround protobuf bug. See https://github.com/protocolbuffers/protobuf/issues/12439
 
 # Hack: protobuf currently doesn't declare it's absl dependencies when protobuf.pc pkgconfig file is used.
 
