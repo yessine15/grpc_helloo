@@ -22,12 +22,12 @@
 
 //#include <grpcpp/ext/proto_server_reflection_plugin.h>
 #include <grpcpp/grpcpp.h>
-#include <grpcpp/health_check_service_interface.h>
-#include <grpc/grpc.h>
-#include <grpcpp/security/server_credentials.h>
-#include <grpcpp/server.h>
-#include <grpcpp/server_builder.h>
-#include <grpcpp/server_context.h>
+//#include <grpcpp/health_check_service_interface.h>
+//#include <grpc/grpc.h>
+//#include <grpcpp/security/server_credentials.h>
+//#include <grpcpp/server.h>
+//#include <grpcpp/server_builder.h>
+//#include <grpcpp/server_context.h>
 
 
 #ifdef BAZEL_BUILD
@@ -60,7 +60,7 @@ void RunServer(uint16_t port) {
   std::string server_address = absl::StrFormat("0.0.0.0:%d", port);
   GreeterServiceImpl service;
 
-  grpc::EnableDefaultHealthCheckService(true);
+  //grpc::EnableDefaultHealthCheckService(true);
  // grpc::reflection::InitProtoReflectionServerBuilderPlugin();
   ServerBuilder builder;
   // Listen on the given address without any authentication mechanism.
